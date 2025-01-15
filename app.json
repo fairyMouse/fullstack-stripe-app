@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "fullstack-stripe-app",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -15,15 +15,28 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.feihan.fullstackstripeapp"
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
+      "output": "server",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router",
+      [
+        "expo-router",
+        {
+          "origin": "https://fullstack-stripe-app.expo.app"
+        }
+      ],
+      [
+        "@stripe/stripe-react-native",
+        {
+          "merchantIdentifier": "merchant.com.fullstack-stripe-app",
+          "publishableKey": "pk_test_51Pv9uNC1gXoxUnVE0ZNlKIFCyoLzBPqh9Yuo4CZfK616ZJA50m0HHLSQbiEiUdvF6qwlrlqLXpSL5p1GICwgwUOG009xl2KoH8"
+        }
+      ],
       [
         "expo-splash-screen",
         {
@@ -36,6 +49,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": "https://fullstack-stripe-app.expo.app"
+      },
+      "eas": {
+        "projectId": "6f074311-5c07-4690-bf50-f8eee6d62e0d"
+      }
     }
   }
 }
